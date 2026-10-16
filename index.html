@@ -162,12 +162,12 @@ footer .links a:hover{color:var(--fg)}
       <p class="tagline">A modern editor for the Nord Modular G2</p>
       <p class="lead" style="margin-left:auto;margin-right:auto">Free and open source, native on Apple silicon Macs. The familiar G2 layout and workflow, live with your synth over USB. Every feature stays free for everyone.</p>
       <div class="cta">
-        <a class="btn primary" href="https://github.com/cubeg2/cube-g2-editor/releases/latest">
+        <a class="btn primary" data-download href="https://github.com/cubeg2/cube-g2-editor/releases/latest">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
           Download for Mac</a>
         <a class="btn ghost" href="https://github.com/cubeg2/cube-g2-editor">View source on GitHub</a>
       </div>
-      <p class="meta"><span>macOS 15 or later</span><span>Apple silicon</span><span>GPL-3.0</span></p>
+      <p class="meta"><span data-file>macOS 15 or later</span><span>Apple silicon</span><span>GPL-3.0</span></p>
     </div>
   </section>
 
@@ -260,7 +260,7 @@ footer .links a:hover{color:var(--fg)}
         <p class="lead" style="margin-top:0">You only need to do this once for every new version. The editor tells you when a new one is out.</p>
         <p class="why">Why? Cube G2 Editor is an independent app that isn't registered with Apple, so macOS can't verify it automatically. This is common for free, independent software.</p>
         <div class="cta" style="justify-content:flex-start">
-          <a class="btn primary" href="https://github.com/cubeg2/cube-g2-editor/releases/latest">
+          <a class="btn primary" data-download href="https://github.com/cubeg2/cube-g2-editor/releases/latest">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
             Download for Mac</a>
         </div>
@@ -320,5 +320,27 @@ footer .links a:hover{color:var(--fg)}
   </div>
 </footer>
 
+<script>
+// Przyciski „Download for Mac” pobierają od razu plik DMG z najnowszego wydania.
+// Bez skryptu albo gdy GitHub nie odpowie, zostaje link do strony wydania.
+(async () => {
+  try {
+    const response = await fetch("https://api.github.com/repos/cubeg2/cube-g2-editor/releases/latest");
+    if (!response.ok) return;
+    const release = await response.json();
+    const dmg = (release.assets || []).find((asset) => asset.name.endsWith(".dmg"));
+    if (!dmg) return;
+    document.querySelectorAll("a[data-download]").forEach((link) => {
+      link.href = dmg.browser_download_url;
+      link.title = dmg.name;
+    });
+    const size = (dmg.size / 1048576).toFixed(1);
+    const version = release.tag_name.replace(/^v/, "");
+    document.querySelectorAll("[data-file]").forEach((el) => {
+      el.textContent = `Version ${version} · ${size} MB · macOS 15 or later`;
+    });
+  } catch (error) {}
+})();
+</script>
 </body>
 </html>
