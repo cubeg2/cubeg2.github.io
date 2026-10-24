@@ -91,6 +91,27 @@ h2{font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.2;letter-spacing:-.01em;fo
 .card h3{font-size:1.04rem;font-weight:600;margin-bottom:6px}
 .card p{color:var(--dim);font-size:.94rem}
 
+/* Z bliska — opisy funkcji z obrazkami */
+.tour h2.title,.tour .lead.title{text-align:center;margin-left:auto;margin-right:auto}
+.row{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:center;margin-top:72px}
+.row.flip .media{order:2}
+.row.wide{grid-template-columns:1fr;gap:28px}
+.row.wide .text{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+@media (max-width:860px){.row.wide .text{grid-template-columns:1fr;gap:8px}}
+@media (max-width:860px){.row{grid-template-columns:1fr;gap:24px;margin-top:56px}.row.flip .media{order:0}}
+.media .window img,.media .window video{width:100%;height:auto;display:block}
+.media .window.small{max-width:560px;margin:0 auto}
+.row h3{font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.25;font-weight:700}
+.row p{color:var(--dim);margin-top:12px}
+.row ul{list-style:none;margin-top:16px}
+.row li{position:relative;padding:7px 0 7px 22px;color:var(--dim);font-size:.95rem;border-top:1px solid var(--line)}
+.row li:first-child{border-top:0}
+.row li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--accent,var(--green))}
+.row li b{color:var(--fg);font-weight:600}
+.row .note{font-size:.86rem;color:var(--faint);margin-top:14px}
+.stack{display:grid;gap:16px}
+kbd{font:600 .82em -apple-system,BlinkMacSystemFont,sans-serif;padding:1px 6px;border-radius:5px;border:1px solid rgba(255,255,255,.2);background:var(--surface2);color:var(--fg)}
+
 /* Instalacja */
 .install{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .split{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:start}
@@ -133,6 +154,7 @@ footer .links a:hover{color:var(--fg)}
     <a class="brand" href="#top"><img src="assets/icon.svg" alt="" width="30" height="30">Cube G2 Editor</a>
     <nav>
       <a href="#features">Features</a>
+      <a href="#tour">Close-up</a>
       <a href="#install">Install</a>
       <a href="#community">Community</a>
       <a class="gh" href="https://github.com/cubeg2/cube-g2-editor">
@@ -244,6 +266,83 @@ footer .links a:hover{color:var(--fg)}
           <div class="ico" style="background:rgba(60,110,220,.16);color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="2"/><path d="M6 7v6m4-6v6m4-6v6m4-6v6"/></svg></div>
           <h3>Play from the Mac</h3>
           <p>An on-screen keyboard plays the selected slot, even with your computer keys.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour" id="tour">
+    <div class="wrap">
+      <span class="eyebrow" style="color:var(--orange);text-align:center">Close-up</span>
+      <h2 class="title">A closer look</h2>
+      <p class="lead title">A few things that make patching faster than ever on the G2.</p>
+
+      <div class="row wide" style="--accent:var(--yellow)">
+        <div class="media">
+          <div class="window">
+            <video src="assets/building-blocks.mp4" poster="assets/building-blocks-poster.jpg" width="1600" height="1000" autoplay muted loop playsinline preload="metadata" aria-label="Dragging Building Blocks from the Blocks list onto a patch, then saving a selection as a new block"></video>
+          </div>
+        </div>
+        <div class="text">
+          <div>
+            <span class="eyebrow" style="color:var(--yellow)">New in 0.1.3</span>
+            <h3>Building Blocks</h3>
+            <p>Keep your favourite patch fragments, a filter section, a sequencer, a clock, as blocks and drag them onto any patch.</p>
+          </div>
+          <ul>
+            <li><b>Drag and drop.</b> Pick a block in the Blocks list and drop it on the patch. It lands selected, ready to move, and one <kbd>⌘Z</kbd> takes it back.</li>
+            <li><b>Everything comes along.</b> Knob assignments, morphs, MIDI CCs and labels travel with the block.</li>
+            <li><b>Save your own.</b> Select modules and choose Save Selection as Block, or drag the selection onto the Blocks list.</li>
+            <li><b>Any patch is a block.</b> Choose a folder of <code>.pch2</code> files in Settings and every patch in it becomes a block.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row flip" style="--accent:var(--purple)">
+        <div class="media stack">
+          <div class="window"><img src="assets/mutator-generate.jpg" width="766" height="511" loading="lazy" alt="Patch Mutator with six children bred from Mother, the eight variations and the Mutation settings panel on the Generate tab"></div>
+          <div class="window"><img src="assets/mutator-shape.jpg" width="766" height="511" loading="lazy" alt="Patch Mutator Shape tab: Amount fader towards a target and a family of eight sounds in Temporary Storage"></div>
+        </div>
+        <div>
+          <span class="eyebrow" style="color:var(--purple)">Patch Mutator</span>
+          <h3>Breed new sounds by ear, with more control than the original</h3>
+          <p>Press Mutate and get six children of your sound. Listen, pick the best and breed again. Everything the original Mutator does is here, plus a settings panel it never had:</p>
+          <ul>
+            <li><b>Only audible.</b> Leaves alone modules you can't hear, so no change is wasted on a dead knob.</li>
+            <li><b>Not silent.</b> Children that come out silent are rolled again.</li>
+            <li><b>Pool &amp; Diversity.</b> Breeds 32 candidates and keeps the six most different.</li>
+            <li><b>Profiles.</b> Timbre, Keep pitch, Motion, Space or Subtle, or your own weight for each group.</li>
+            <li><b>Protect.</b> Keeps assigned knobs, pitch, loudness and tempo-synced timing in check.</li>
+            <li><b>Amount and families.</b> Slide smoothly from Mother towards a target, or make a family of eight steps and copy it to variations 1–8.</li>
+            <li><b>A/B compare.</b> Switch between Mother and any child with the space bar.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row" style="--accent:var(--blue)">
+        <div class="media">
+          <div class="window"><img src="assets/canvas-zoom.jpg" srcset="assets/canvas-zoom-960.jpg 960w, assets/canvas-zoom.jpg 1920w" sizes="(max-width:860px) 100vw, 640px" width="1920" height="1055" loading="lazy" alt="The patch zoomed in to 187 percent, with sharp knobs, displays and cables"></div>
+        </div>
+        <div>
+          <span class="eyebrow" style="color:var(--blue)">Canvas</span>
+          <h3>Zoom in, or see the whole patch</h3>
+          <p>Every module is drawn as vectors, so knobs, displays and labels stay sharp at any size, on a laptop or a big studio display.</p>
+          <ul>
+            <li><b>Buttons in the top bar.</b> One fits every module on screen (<kbd>⇧⌘0</kbd>). The other returns to your standard size: right-click it to choose 100%, 120% or 140%. The arrows next to the percentage zoom step by step.</li>
+            <li><b>Trackpad and mouse.</b> Pinch, or scroll with <kbd>⌘</kbd> held. The zoom follows your pointer.</li>
+            <li><b>Move around.</b> Hold the space bar and drag. <kbd>⌘0</kbd> takes you back to your standard size.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row flip" style="--accent:var(--green)">
+        <div class="media">
+          <div class="window small"><img src="assets/adjuster.jpg" width="530" height="103" loading="lazy" alt="Patch Adjuster with eight knobs: Attack, Decay, Sustain, Release, Mod. Rate, Timbre, Resonance and Effects"></div>
+        </div>
+        <div>
+          <span class="eyebrow" style="color:var(--green)">Patch Adjuster</span>
+          <h3>Change the whole patch with one knob</h3>
+          <p>Eight knobs move every matching parameter in the patch at once: all attacks, decays, sustains and releases, modulation rates, timbre, resonance and effects. Make a patch snappier, darker or wetter in one move.</p>
         </div>
       </div>
     </div>
