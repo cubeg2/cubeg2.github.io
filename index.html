@@ -110,6 +110,10 @@ h2{font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.2;letter-spacing:-.01em;fo
 .row li b{color:var(--fg);font-weight:600}
 .row .note{font-size:.86rem;color:var(--faint);margin-top:14px}
 .stack{display:grid;gap:16px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+@media (max-width:600px){.pair{grid-template-columns:1fr}}
+.window.fit{width:fit-content;max-width:100%;margin:0 auto}
+.window.fit img{width:auto;max-width:100%}
 kbd{font:600 .82em -apple-system,BlinkMacSystemFont,sans-serif;padding:1px 6px;border-radius:5px;border:1px solid rgba(255,255,255,.2);background:var(--surface2);color:var(--fg)}
 
 /* Instalacja */
@@ -179,12 +183,12 @@ footer .links a:hover{color:var(--fg)}
       <path d="M120,190 C190,470 410,470 480,420" stroke="#e8e8e8"/><circle cx="120" cy="190" r="11" stroke="#e8e8e8"/><circle cx="480" cy="420" r="11" stroke="#e8e8e8"/>
     </svg>
     <div class="wrap">
-      <span class="badge"><i></i>Public beta 0.1.7</span>
+      <span class="badge"><i></i>Public beta 0.1.8</span>
       <img class="logo" src="assets/logo.svg" alt="Cube G2 Editor" width="560" height="149">
       <p class="tagline">A modern editor for the Nord Modular G2</p>
       <p class="lead" style="margin-left:auto;margin-right:auto">Free and open source, native on Apple silicon Macs. The familiar G2 layout and workflow, live with your synth over USB. Every feature stays free for everyone.</p>
       <div class="cta">
-        <a class="btn primary" data-download href="https://github.com/cubeg2/cube-g2-editor/releases/download/v0.1.7/Cube-G2-Editor-0.1.7-beta.dmg">
+        <a class="btn primary" data-download href="https://github.com/cubeg2/cube-g2-editor/releases/download/v0.1.8/Cube-G2-Editor-0.1.8-beta.dmg">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
           Download for Mac</a>
         <a class="btn ghost" href="https://github.com/cubeg2/cube-g2-editor">View source on GitHub</a>
@@ -208,13 +212,13 @@ footer .links a:hover{color:var(--fg)}
         <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2l1.9 1.9M16 2l-1.9 1.9M9 7.1V6a3 3 0 016 0v1.1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 014-4h4a4 4 0 014 4v3c0 3.3-2.7 6-6 6zM12 20v-9M6 13H2m4 4l-3 2m3-10L3 7m15 6h4m-4 4l3 2m-3-10l3-2"/></svg></div>
         <div>
           <h2>This is an early beta</h2>
-          <p>Cube G2 Editor 0.1.7 is an early public beta. Please try everything you do with your G2: open and save patches, edit live, play performances, use variations, morphs and banks. Tell us what doesn't work, what looks wrong or what feels awkward. Every report helps, even a small one.</p>
+          <p>Cube G2 Editor 0.1.8 is an early public beta. Please try everything you do with your G2: open and save patches, edit live, play performances, use variations, morphs and banks. Tell us what doesn't work, what looks wrong or what feels awkward. Every report helps, even a small one.</p>
           <div class="cta">
             <a class="btn discord" href="https://discord.gg/2kUhfYRa2t">Report on Discord</a>
             <a class="btn ghost" href="https://github.com/cubeg2/cube-g2-editor/issues/new/choose">Open an issue on GitHub</a>
           </div>
           <p class="small">In the app, Settings ▸ Feedback shows what to include in a report and how to save a USB log.</p>
-          <p class="small">New in 0.1.7: old patches no longer freeze the G2, old patch files are brought up to date when you open them, the Patch Mutator's Not silent really avoids silent children, and the DSP meters count like the G2. Building Blocks arrived in 0.1.3.</p>
+          <p class="small">New in 0.1.8: a fader that morphs between variations, Shift-click to compare two variations on the patch, padlocks that keep a knob the same in all eight, one volume for all variations (right-click Vol), a voice calculator in DSP Load, and no more clicks while a patch loads. See <a href="#tour">A closer look</a> below.</p>
           <p class="small">What changed in each version: <a href="https://github.com/cubeg2/cube-g2-editor/blob/main/Sources/G2EditorApp/Resources/ReleaseNotes.md">release notes</a> (also in the app, under Settings ▸ Updates).</p>
         </div>
       </div>
@@ -276,6 +280,80 @@ footer .links a:hover{color:var(--fg)}
       <span class="eyebrow" style="color:var(--orange);text-align:center">Close-up</span>
       <h2 class="title">A closer look</h2>
       <p class="lead title">A few things that make patching faster than ever on the G2.</p>
+
+      <div class="row wide" style="--accent:var(--green)">
+        <div class="media">
+          <div class="window"><img src="assets/variation-fader.jpg" width="1568" height="716" loading="lazy" alt="The variation fader under the eight variation buttons stands between variations 2 and 3; knobs that change on the patch are highlighted"></div>
+        </div>
+        <div class="text">
+          <div>
+            <span class="eyebrow" style="color:var(--green)">New in 0.1.8</span>
+            <h3>Variation fader</h3>
+            <p>A slider under the variation buttons fades smoothly from one variation to the next. Play the morph live, or find a new sound halfway between two of yours.</p>
+          </div>
+          <ul>
+            <li><b>Drag the green knob.</b> Each dot is a variation. Between two dots you hear a mix of both: knobs glide, while switches and waveforms change when the slider reaches the next dot.</li>
+            <li><b>See what changes.</b> While you drag, the patch lights up the controls that move on the way to the next variation.</li>
+            <li><b>Keep a sound in between.</b> Right-click the variation bar ▸ Store Fader Sound To ▸ Variation 1–8. Nothing changes in your eight variations until you store it, and one <kbd>⌘Z</kbd> undoes the whole move.</li>
+            <li><b>In the Patch Mutator too.</b> The same fader sits under the Variations boxes. Right-click any box ▸ Store Fader Sound Here.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row wide" style="--accent:var(--blue)">
+        <div class="media">
+          <div class="window"><img src="assets/variation-compare.jpg" width="1416" height="617" loading="lazy" alt="Variation 1 compared with variation 5: unchanged modules are dimmed, knobs show a second turquoise pointer, and a bubble shows Var 1: 100 and Var 5: 0"></div>
+        </div>
+        <div class="text">
+          <div>
+            <span class="eyebrow" style="color:var(--blue)">New in 0.1.8</span>
+            <h3>Compare two variations at a glance</h3>
+            <p><b>Shift-click</b> a variation button and the patch shows how it differs from the one that is playing.</p>
+          </div>
+          <ul>
+            <li><b>Only the differences stand out.</b> Everything that is the same fades under a light mist.</li>
+            <li><b>Turquoise marks the other variation:</b> a second pointer on knobs, an outline on buttons and sliders, a dashed curve on envelope and filter graphs.</li>
+            <li><b>Both values in a bubble.</b> Hover a control, or hold <kbd>⌥</kbd> to see every difference at once.</li>
+            <li><b>Done?</b> Press <kbd>Esc</kbd> or Shift-click the button again.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row flip" style="--accent:var(--orange)">
+        <div class="media stack">
+          <div class="window fit"><img src="assets/lock-padlocks.jpg" width="570" height="389" loading="lazy" alt="Small orange padlocks next to the locked Freq knob and all controls of the AEnv envelope"></div>
+          <div class="window fit"><img src="assets/lock-menu.jpg" width="396" height="330" loading="lazy" alt="Right-click menu of the Ladder filter Freq knob with Lock Across Variations highlighted"></div>
+        </div>
+        <div>
+          <span class="eyebrow" style="color:var(--orange)">New in 0.1.8</span>
+          <h3>Lock a knob across all variations</h3>
+          <p>Some settings should never change when you switch variations, like a master level or a tempo. Now you can lock them.</p>
+          <ul>
+            <li><b>Right-click a knob</b>, slider or button ▸ Lock Across Variations. Its value is copied to all eight variations and an orange padlock appears.</li>
+            <li><b>A whole module at once:</b> Lock Across Variations in the module menu.</li>
+            <li><b>Stays put</b> when you switch variations, on the G2 too. Turning it changes all eight, and the Patch Mutator leaves it alone.</li>
+            <li><b>Your files stay standard.</b> The editor remembers the padlocks by file name and puts them back when you open the file.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row" style="--accent:var(--purple)">
+        <div class="media pair">
+          <div class="window"><img src="assets/voice-calculator.jpg" width="301" height="293" loading="lazy" alt="DSP Load window, Voices section: four slots spread over 4 DSPs; slot B gets 10 of 16 voices on a G2 and 16 of 16 with an expansion board; Doesn't fit: B −6 voices"></div>
+          <div class="window"><img src="assets/browser-expansion.jpg" width="297" height="521" loading="lazy" alt="Patch browser search results with red bars next to patches that need an expansion board"></div>
+        </div>
+        <div>
+          <span class="eyebrow" style="color:var(--purple)">New in 0.1.8</span>
+          <h3>Know how many voices you get</h3>
+          <p>Tools ▸ DSP Load has a voice calculator. It shows how the four slots share the G2's DSPs and how many voices each slot really gets.</p>
+          <ul>
+            <li><b>With and without an expansion board.</b> Switch between 4 DSP and 8 DSP. Orange numbers and a “Doesn't fit” line show where voices run out.</li>
+            <li><b>Red bar in the patch browser</b> next to patches and performances that need more than your G2 has. Hover a file to see the voices per slot.</li>
+            <li><b>Tell the editor about your G2</b> in Settings ▸ General ▸ Your G2 ▸ Expansion board installed.</li>
+            <li><b>The Voices box shows what the G2 really gives,</b> like the original editor: “7 (28)” means 7 voices playing out of 28 requested.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="row wide" style="--accent:var(--yellow)">
         <div class="media">
@@ -361,7 +439,7 @@ footer .links a:hover{color:var(--fg)}
         <p class="lead" style="margin-top:0">You only need to do this once for every new version. The editor tells you when a new one is out.</p>
         <p class="why">Why? Cube G2 Editor is an independent app that isn't registered with Apple, so macOS can't verify it automatically. This is common for free, independent software.</p>
         <div class="cta" style="justify-content:flex-start">
-          <a class="btn primary" data-download href="https://github.com/cubeg2/cube-g2-editor/releases/download/v0.1.7/Cube-G2-Editor-0.1.7-beta.dmg">
+          <a class="btn primary" data-download href="https://github.com/cubeg2/cube-g2-editor/releases/download/v0.1.8/Cube-G2-Editor-0.1.8-beta.dmg">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
             Download for Mac</a>
         </div>
