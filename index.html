@@ -200,7 +200,7 @@ footer .links a:hover{color:var(--fg)}
   <section class="shot" aria-label="Screenshot">
     <div class="wrap">
       <div class="window">
-        <img src="assets/editor-main.jpg" srcset="assets/editor-main-960.jpg 960w, assets/editor-main.jpg 1920w" sizes="(max-width:1160px) 100vw, 1120px" width="1920" height="1054" alt="Cube G2 Editor with a performance open: modules and cables on the patch, Patch Mutator, DSP Load, Parameter Pages and the on-screen keyboard">
+        <img src="assets/editor-main.jpg" srcset="assets/editor-main-960.jpg 960w, assets/editor-main.jpg 1920w" sizes="(max-width:1160px) 100vw, 1120px" width="1920" height="1055" alt="Cube G2 Editor with a three-slot performance open: modules and cables on the patch, the Patch Mutator with its variation fader, DSP Load with the voice calculator, Parameter Overview, Parameter Pages, Patch Adjuster and the on-screen keyboard">
       </div>
       <p class="caption">A performance with the Patch Mutator, DSP Load, Parameter Pages and the on-screen keyboard open.</p>
     </div>
@@ -290,12 +290,15 @@ footer .links a:hover{color:var(--fg)}
             <span class="eyebrow" style="color:var(--green)">New in 0.1.8</span>
             <h3>Variation fader</h3>
             <p>A slider under the variation buttons fades smoothly from one variation to the next. Play the morph live, or find a new sound halfway between two of yours.</p>
+            <div class="window" style="margin-top:24px"><img src="assets/fader-store-menu.jpg" width="1332" height="434" loading="lazy" alt="Right-click menu of the variation bar while the fader stands between variations 2 and 3: Store Fader Sound To, with Variation 1 to 8 in the submenu, and Compare Fader Sound With"></div>
           </div>
           <ul>
             <li><b>Drag the green knob.</b> Each dot is a variation. Between two dots you hear a mix of both: knobs glide, while switches and waveforms change when the slider reaches the next dot.</li>
             <li><b>See what changes.</b> While you drag, the patch lights up the controls that move on the way to the next variation.</li>
-            <li><b>Keep a sound in between.</b> Right-click the variation bar ▸ Store Fader Sound To ▸ Variation 1–8. Nothing changes in your eight variations until you store it, and one <kbd>⌘Z</kbd> undoes the whole move.</li>
-            <li><b>In the Patch Mutator too.</b> The same fader sits under the Variations boxes. Right-click any box ▸ Store Fader Sound Here.</li>
+            <li><b>Release where you like.</b> On a dot, that variation plays as usual. Between two dots, the mixed sound keeps playing. Your eight variations stay as they are, and one <kbd>⌘Z</kbd> takes the whole move back.</li>
+            <li><b>Save the mix as a variation.</b> While the fader stands between two dots, right-click the variation bar ▸ Store Fader Sound To ▸ Variation 1–8. The sound you hear replaces that variation, on the G2 too. Pick an empty or spare variation if you want to keep all eight; <kbd>⌘Z</kbd> gives the old one back.</li>
+            <li><b>Check before you save.</b> Right-click ▸ Compare Fader Sound With ▸ a variation shows on the patch how the mixed sound differs from it.</li>
+            <li><b>In the Patch Mutator too.</b> The same fader sits under the Variations boxes. Right-click any box ▸ Store Fader Sound Here to keep the mix in Temporary Storage, or in Mother or Father to breed from it.</li>
           </ul>
         </div>
       </div>
@@ -378,8 +381,8 @@ footer .links a:hover{color:var(--fg)}
 
       <div class="row flip" style="--accent:var(--purple)">
         <div class="media stack">
-          <div class="window"><img src="assets/mutator-generate.jpg" width="766" height="511" loading="lazy" alt="Patch Mutator with six children bred from Mother, the eight variations and the Mutation settings panel on the Generate tab"></div>
-          <div class="window"><img src="assets/mutator-shape.jpg" width="766" height="511" loading="lazy" alt="Patch Mutator Shape tab: Amount fader towards a target and a family of eight sounds in Temporary Storage"></div>
+          <div class="window"><img src="assets/mutator-fader.jpg" width="1532" height="1056" loading="lazy" alt="Patch Mutator with six children bred from Mother, the eight variations with the variation fader between variations 2 and 3, and the Mutation settings panel on the Generate tab"></div>
+          <div class="window"><img src="assets/mutator-store.jpg" width="996" height="585" loading="lazy" alt="Right-click menu of a Temporary Storage box in the Patch Mutator with Store Fader Sound Here highlighted"></div>
         </div>
         <div>
           <span class="eyebrow" style="color:var(--purple)">Patch Mutator</span>
@@ -393,6 +396,7 @@ footer .links a:hover{color:var(--fg)}
             <li><b>Protect.</b> Keeps assigned knobs, pitch, loudness and tempo-synced timing in check.</li>
             <li><b>Amount and families.</b> Slide smoothly from Mother towards a target, or make a family of eight steps and copy it to variations 1–8.</li>
             <li><b>A/B compare.</b> Switch between Mother and any child with the space bar.</li>
+            <li><b>Variation fader.</b> <span style="color:var(--green)">New in 0.1.8.</span> Fade between your eight variations under the Variations boxes, and right-click any box ▸ Store Fader Sound Here to keep the mix.</li>
           </ul>
         </div>
       </div>
