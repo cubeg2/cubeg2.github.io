@@ -113,7 +113,7 @@ h2{font-size:clamp(1.6rem,3.2vw,2.3rem);line-height:1.2;letter-spacing:-.01em;fo
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 @media (max-width:600px){.pair{grid-template-columns:1fr}}
 .window.fit{width:fit-content;max-width:100%;margin:0 auto}
-.window.fit img{width:auto;max-width:100%}
+.window.fit img{width:100%}
 kbd{font:600 .82em -apple-system,BlinkMacSystemFont,sans-serif;padding:1px 6px;border-radius:5px;border:1px solid rgba(255,255,255,.2);background:var(--surface2);color:var(--fg)}
 
 /* Instalacja */
@@ -283,7 +283,7 @@ footer .links a:hover{color:var(--fg)}
 
       <div class="row wide" style="--accent:var(--green)">
         <div class="media">
-          <div class="window"><img src="assets/variation-fader.jpg" width="1568" height="716" loading="lazy" alt="The variation fader under the eight variation buttons stands between variations 2 and 3; knobs that change on the patch are highlighted"></div>
+          <div class="window"><img src="assets/variation-fader.jpg" srcset="assets/variation-fader-1400.jpg 1400w, assets/variation-fader.jpg 2656w" sizes="(max-width:1160px) 100vw, 1080px" width="2656" height="1610" loading="lazy" alt="The variation fader under the eight variation buttons stands between variations 2 and 3; knobs that change on the patch are highlighted"></div>
         </div>
         <div class="text">
           <div>
@@ -302,7 +302,7 @@ footer .links a:hover{color:var(--fg)}
 
       <div class="row wide" style="--accent:var(--blue)">
         <div class="media">
-          <div class="window"><img src="assets/variation-compare.jpg" width="1416" height="617" loading="lazy" alt="Variation 1 compared with variation 5: unchanged modules are dimmed, knobs show a second turquoise pointer, and a bubble shows Var 1: 100 and Var 5: 0"></div>
+          <div class="window"><img src="assets/variation-compare.jpg" srcset="assets/variation-compare-1400.jpg 1400w, assets/variation-compare.jpg 2612w" sizes="(max-width:1160px) 100vw, 1080px" width="2612" height="1204" loading="lazy" alt="Variation 1 compared with variation 5: unchanged modules are dimmed, knobs show a second turquoise pointer, and a bubble shows Var 1: 100 and Var 5: 0"></div>
         </div>
         <div class="text">
           <div>
@@ -321,8 +321,8 @@ footer .links a:hover{color:var(--fg)}
 
       <div class="row flip" style="--accent:var(--orange)">
         <div class="media stack">
-          <div class="window fit"><img src="assets/lock-padlocks.jpg" width="570" height="389" loading="lazy" alt="Small orange padlocks next to the locked Freq knob and all controls of the AEnv envelope"></div>
-          <div class="window fit"><img src="assets/lock-menu.jpg" width="396" height="330" loading="lazy" alt="Right-click menu of the Ladder filter Freq knob with Lock Across Variations highlighted"></div>
+          <div class="window fit" style="max-width:384px"><img src="assets/lock-padlocks.jpg" width="768" height="744" loading="lazy" alt="Small orange padlocks on the locked Noise colour knob and on every control of the locked Osc1 module; Osc2 below is not locked"></div>
+          <div class="window fit" style="max-width:440px"><img src="assets/lock-menu.jpg" width="880" height="530" loading="lazy" alt="Right-click menu of the Noise colour knob with Lock Across Variations highlighted"></div>
         </div>
         <div>
           <span class="eyebrow" style="color:var(--orange)">New in 0.1.8</span>
@@ -339,8 +339,8 @@ footer .links a:hover{color:var(--fg)}
 
       <div class="row" style="--accent:var(--purple)">
         <div class="media pair">
-          <div class="window"><img src="assets/voice-calculator.jpg" width="301" height="293" loading="lazy" alt="DSP Load window, Voices section: four slots spread over 4 DSPs; slot B gets 10 of 16 voices on a G2 and 16 of 16 with an expansion board; Doesn't fit: B −6 voices"></div>
-          <div class="window"><img src="assets/browser-expansion.jpg" width="297" height="521" loading="lazy" alt="Patch browser search results with red bars next to patches that need an expansion board"></div>
+          <div class="window"><img src="assets/voice-calculator.jpg" width="650" height="592" loading="lazy" alt="DSP Load window, Voices section: four slots spread over 4 DSPs; slot B gets 10 of 16 voices on a G2 and 16 of 16 with an expansion board; Doesn't fit: B −6 voices"></div>
+          <div class="window"><img src="assets/browser-expansion.jpg" width="580" height="1040" loading="lazy" alt="Patch browser search results with red bars next to patches that need an expansion board"></div>
         </div>
         <div>
           <span class="eyebrow" style="color:var(--purple)">New in 0.1.8</span>
